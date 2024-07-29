@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Factory_Method.Concreate_Product
 {
-    public partial class Car : IVehicule
+    public partial class Car : IVehicle
     {
+        public int Day { get; set; }
         public string Model;
-        public int SeatsNumber;
         public string FuelType;
-        public int Stock;
+        public int Capacity;
         public double RentalCostPerDay;
     }
 }

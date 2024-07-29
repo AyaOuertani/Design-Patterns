@@ -7,9 +7,9 @@ namespace Factory_Method.Concreate_Creator
 {
     public class TruckRental : RentalCenter
     {
-        public override IVehicule CreateVehicule(string model, int cpacity, string fuelType, int stock, double rentalCostPerDay)
+        public override IVehicle CreateVehicule(string model, string fuelType,int capacity, double rentalCostPerDay,int day)
         {
-            return new Truck(model, cpacity, fuelType, stock, rentalCostPerDay);
+            return new Truck(model, fuelType, capacity, rentalCostPerDay,day);
         }
     }
 }

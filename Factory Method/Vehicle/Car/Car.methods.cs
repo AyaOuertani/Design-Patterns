@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Factory_Method.Concreate_Product
 {
-    public partial class Car : IVehicule
+    public partial class Car : IVehicle
     {
-        public Car(string model, int seatsNumber, string fuelType,int stock, double rentalCostPerDay)
+        public Car(string model, string fuelType, int capacity, double rentalCostPerDay,int day)
         {
             Model = model;
-            SeatsNumber = seatsNumber;
             FuelType = fuelType;
-            Stock = stock;
+            Capacity = capacity;
             RentalCostPerDay = rentalCostPerDay;
+            Day = day;
         }
         public double CalculateRentalCost(int days) => days * RentalCostPerDay;
         public string VehiculeFullDescription()
         {
-            return $"Car:\nMoel:{Model} \nSeats Number: {SeatsNumber} \nFull Type : {FuelType}\n Stock : {Stock}\n Rental Cost Per Day :{RentalCostPerDay}";
+            return $"Car:\nMoel:{Model}\nCapacity:{Capacity}\nFull Type:{FuelType}\nRental Cost Per Day:{RentalCostPerDay}";
         }
     }
 }

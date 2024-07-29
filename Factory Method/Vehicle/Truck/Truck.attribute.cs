@@ -2,13 +2,12 @@
 
 namespace Factory_Method.Concreate_Product.Truck
 {
-    public partial class Truck : IVehicule
+    public partial class Truck : IVehicle
     {
-
+        public int Day { get; set; }
         public string Model;
-        public int Cpacity;
         public string FuelType;
-        public int Stock;
+        public int Capacity;
         public double RentalCostPerDay;
     }
 }

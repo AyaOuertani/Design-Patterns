@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Factory_Method.Interface
 {
-    public interface IVehicule
+    public interface IVehicle
     {
+        
         public double CalculateRentalCost(int days);
         public string VehiculeFullDescription();
+        public int Day { get; set; }
     }
 }

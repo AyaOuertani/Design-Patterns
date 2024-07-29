@@ -2,20 +2,21 @@
 
 namespace Factory_Method.Concreate_Product.Bike
 {
-    public partial class Bike : IVehicule
+    public partial class Bike : IVehicle
     {
-        public Bike(string model, int wheelNumber, string fuelType, int stock, double rentalCostPerDay)
+
+        public Bike(string model, string fuelType, int capacity, double rentalCostPerDay, int day)
         {
             Model = model;
-            WheelNumber = wheelNumber;
             FuelType = fuelType;
-            Stock = stock;
+            Capacity = capacity;
             RentalCostPerDay = rentalCostPerDay;
+            Day = day;
         }
         public double CalculateRentalCost(int days) => days * RentalCostPerDay;
         public string VehiculeFullDescription()
         {
-            return $"Car:\nMoel:{Model} \nWheel Number: {WheelNumber} \nFull Type : {FuelType}\n Stock : {Stock}\n Rental Cost Per Day :{RentalCostPerDay}";
+            return $"Bike:\nMoel:{Model}\nCapacity:{Capacity}\nFull Type:{FuelType}\n Rental Cost Per Day:{RentalCostPerDay}";
         }
     }
 }
