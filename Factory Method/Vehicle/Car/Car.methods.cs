@@ -10,15 +10,15 @@ namespace Factory_Method.Concreate_Product
 {
     public partial class Car : IVehicle
     {
-        public Car(string model, string fuelType, int capacity, double rentalCostPerDay,int day)
+        public Car(string model, string fuelType, int capacity, double rentalCostPerDay,int days)
         {
             Model = model;
             FuelType = fuelType;
             Capacity = capacity;
             RentalCostPerDay = rentalCostPerDay;
-            Day = day;
+            Days = days;
         }
-        public double CalculateRentalCost(int days) => days * RentalCostPerDay;
+        public double CalculateRentalCost() => Days * RentalCostPerDay;
         public string VehiculeFullDescription()
         {
             return $"Car:\nMoel:{Model}\nCapacity:{Capacity}\nFull Type:{FuelType}\nRental Cost Per Day:{RentalCostPerDay}";

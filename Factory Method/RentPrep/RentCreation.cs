@@ -10,7 +10,7 @@ namespace Factory_Method.RentPrep
 {
     public class RentCreation
     {
-        public static IVehicle RentCreationDetails(RentalCenter rentalService)
+        public static IVehicle RentCreationDetails(IRentalCenter rentalService)
         {
             Console.WriteLine("Enter vehicle name:");
             string name = Console.ReadLine();

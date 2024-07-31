@@ -11,7 +11,7 @@ namespace Factory_Method.RentPrep
 {
     public static class ChoiceToRent
     {
-        public static void Choice (out RentalCenter rentalService)
+        public static void Choice (out IRentalCenter rentalService)
         {
             Console.WriteLine("Welcome to the Vehicle Rental System");
             Console.WriteLine("Please select a vehicle type: 1. Car, 2. Bike, 3. Truck");

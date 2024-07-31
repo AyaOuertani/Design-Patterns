@@ -10,12 +10,12 @@ namespace Factory_Method
 
         public static void Main(string[] args)
         {
-            ChoiceToRent.Choice(out RentalCenter rentalService);
+            ChoiceToRent.Choice(out IRentalCenter rentalService);
             IVehicle vehicleRented = RentCreation.RentCreationDetails(rentalService);
             Console.WriteLine("Vehicle rented successfully!");
             Console.WriteLine("Details of the rent:");
             Console.WriteLine(vehicleRented.VehiculeFullDescription());
-            Console.WriteLine($"Total Rental Cost for {vehicleRented.Day} days: {vehicleRented.CalculateRentalCost(vehicleRented.Day)}");
+            Console.WriteLine($"Total Rental Cost for {vehicleRented.Days} days: {vehicleRented.CalculateRentalCost()} DT");
         }
     }
 }

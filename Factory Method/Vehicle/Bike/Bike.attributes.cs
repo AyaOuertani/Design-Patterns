@@ -4,11 +4,11 @@ namespace Factory_Method.Concreate_Product.Bike
 {
     public partial class Bike : IVehicle
     {
-        public int Day { get; set; }
-        public string Model;
-        public string FuelType;
-        public int Capacity;
-        public double RentalCostPerDay;
+        public int Days { get; set; }
+        public string Model { get; set; }
+        public string FuelType { get; set; }
+        public int Capacity { get; set; }
+        public double RentalCostPerDay { get; set; }
     }
 }
 
