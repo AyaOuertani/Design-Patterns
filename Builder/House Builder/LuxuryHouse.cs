@@ -14,23 +14,26 @@ namespace Builder.House_Builder
         {
             _house.RoomNumber = roomNumber;
         }
-        public void FlooringType(string flooringType ="Marbel")
+        public void FlooringType(string flooringType = "Marbel")
         {
             _house.FlooringType = flooringType;
 
         }
-        public void RoofType(string roofType ="Gable") {
+        public void RoofType(string roofType = "Gable")
+        {
             _house.RoofType = roofType;
         }
-        public void KitchenStyle(string kitchenStyle = "Modren") {
+        public void KitchenStyle(string kitchenStyle = "Modren")
+        {
             _house.KitchenStyle = kitchenStyle;
         }
-        public void Garden(bool garden) {
+        public void Garden(bool garden)
+        {
             _house.Garden = true;
         }
         public void SwimmingPool(bool swimmingPool)
         {
-            _house.SwimmingPool= true;
+            _house.SwimmingPool = true;
         }
         public House HouseBuilding()
         {

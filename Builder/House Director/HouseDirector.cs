@@ -1,6 +1,5 @@
 ﻿using Builder.HouseProduct;
 using Builder.Interface;
-using System.Reflection.Emit;
 
 namespace Builder.House_Director
 {
@@ -12,35 +11,35 @@ namespace Builder.House_Director
             _builder = builder;
         }
 
-        public House ConstructLuxeryHouse(int entryDoor, int roomNumber,string flooringType= "Marbel", string kitchenStyle= "Modren", string roofType = "Gable", bool garden=true, bool pool = true)
+        public House ConstructLuxeryHouse(int entryDoor, int roomNumber, string flooringType, string kitchenStyle, string roofType, bool garden = true, bool pool = true)
         {
             _builder.EntryDoor(entryDoor);
             _builder.RoomNumber(roomNumber);
-            _builder.FlooringType(flooringType);
-            _builder.KitchenStyle(kitchenStyle);
-            _builder.RoofType(roofType);
+            _builder.FlooringType(string.IsNullOrEmpty(flooringType) ? "Marbel" : flooringType);
+            _builder.KitchenStyle(string.IsNullOrEmpty(kitchenStyle) ? "Modern" : kitchenStyle);
+            _builder.RoofType(string.IsNullOrEmpty(roofType) ? "Gable" : roofType);
             _builder.Garden(garden);
             _builder.SwimmingPool(pool);
             return _builder.HouseBuilding();
         }
-        public House ConstructEcoyHouse(int entryDoor, int roomNumber, string flooringType = "Bamboo", string kitchenStyle = "Eco", string roofType = "Green", bool garden = true, bool pool = false)
+        public House ConstructEcoyHouse(int entryDoor, int roomNumber, string flooringType, string kitchenStyle, string roofType, bool garden = true, bool pool = false)
         {
             _builder.EntryDoor(entryDoor);
             _builder.RoomNumber(roomNumber);
-            _builder.FlooringType(flooringType);
-            _builder.KitchenStyle(kitchenStyle);
-            _builder.RoofType(roofType);
+            _builder.FlooringType(string.IsNullOrEmpty(flooringType) ? "Bamboo" : flooringType);
+            _builder.KitchenStyle(string.IsNullOrEmpty(kitchenStyle) ? "Eco" : kitchenStyle);
+            _builder.RoofType(string.IsNullOrEmpty(roofType) ? "Green" : roofType);
             _builder.Garden(garden);
             _builder.SwimmingPool(pool);
             return _builder.HouseBuilding();
         }
-        public House ConstructMinimilistHouse(int entryDoor, int roomNumber, string flooringType = "Polished Concrete", string kitchenStyle = "Minimalist", string roofType = = "Flat", bool garden = false, bool pool = false)
+        public House ConstructMinimilistHouse(int entryDoor, int roomNumber, string flooringType, string kitchenStyle, string roofType, bool garden = false, bool pool = false)
         {
             _builder.EntryDoor(entryDoor);
             _builder.RoomNumber(roomNumber);
-            _builder.FlooringType(flooringType);
-            _builder.KitchenStyle(kitchenStyle);
-            _builder.RoofType(roofType);
+            _builder.FlooringType(string.IsNullOrEmpty(flooringType) ? "Polished Concrete" : flooringType);
+            _builder.KitchenStyle(string.IsNullOrEmpty(kitchenStyle) ? "Minimalist" : kitchenStyle);
+            _builder.RoofType(string.IsNullOrEmpty(roofType) ? "Flat" : roofType);
             _builder.Garden(garden);
             _builder.SwimmingPool(pool);
             return _builder.HouseBuilding();

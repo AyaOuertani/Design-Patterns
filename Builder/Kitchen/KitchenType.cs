@@ -4,35 +4,32 @@ namespace Builder.Kitchen
 {
     public class KitchenType
     {
-        public static string kitchenStyle;
+        public static string KitchenStyle;
         public static void ChooseKitchenType(ref IHouseBuilder builder)
         {
             Console.WriteLine("Choose kitchen style:");
-            Console.WriteLine("1. Modern");
-            Console.WriteLine("2. Classic");
-            Console.WriteLine("3. Eco");
-            Console.WriteLine("4. Minimalist");
+            Console.WriteLine("1. Modern\n2. Classic\n3. Eco\n4. Minimalist");
             int.TryParse(Console.ReadLine(), out int kitchenStyleChoice);
             switch (kitchenStyleChoice)
             {
                 case 1:
-                    kitchenStyle = "Modern";
+                    KitchenStyle = "Modern";
                     break;
                 case 2:
-                    kitchenStyle = "Classic";
+                    KitchenStyle = "Classic";
                     break;
                 case 3:
-                    kitchenStyle = "Eco";
+                    KitchenStyle = "Eco";
                     break;
                 case 4:
-                    kitchenStyle = "Minimalist";
+                    KitchenStyle = "Minimalist";
                     break;
                 default:
                     Console.WriteLine("Default kitchen style will be used.");
                     break;
                 
             }
-            builder.KitchenStyle(kitchenStyle);
+            builder.KitchenStyle(KitchenStyle);
 
         }
     }

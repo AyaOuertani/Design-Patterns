@@ -13,10 +13,7 @@ namespace Builder.Floor
         public static void ChooseFloorType(ref IHouseBuilder builder)
         {
             Console.WriteLine("Choose flooring type:");
-            Console.WriteLine("1. Marble");
-            Console.WriteLine("2. Hardwood");
-            Console.WriteLine("3. Bamboo");
-            Console.WriteLine("4. Polished Concrete");
+            Console.WriteLine("1. Marble\n2. Hardwood\n3. Bamboo\n4. Polished Concrete");
             int.TryParse(Console.ReadLine(), out int flooringChoice);
 
             switch (flooringChoice)

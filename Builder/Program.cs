@@ -1,9 +1,11 @@
 ﻿using Builder.Floor;
 using Builder.House_Director;
+using Builder.HouseCustomize;
 using Builder.HouseProduct;
 using Builder.HouseType;
 using Builder.Interface;
 using Builder.Kitchen;
+using Builder.Roof;
 namespace Builder
 {
     public class Program
@@ -16,43 +18,22 @@ namespace Builder
             IHouseBuilder builder = HouseTypes.ChooseHouseType();
             if (builder != null)
             {
-                Console.WriteLine("\nCustomize your house:");
-                Console.WriteLine("\nEnter the number of Entry Door: ");
-                int.TryParse(Console.ReadLine(), out int entryDoor);
-                builder.EntryDoor(entryDoor);
-
-                Console.WriteLine("Enter the number of rooms: ");
-                int.TryParse(Console.ReadLine(), out int roomNumber);
-                builder.RoomNumber(roomNumber);
-
-                Console.WriteLine("Does the house have a garden? (yes/no): ");
-                string hasGarden = Console.ReadLine();
-                bool garden = true;
-                if (hasGarden.ToUpper() == "Yes")
-                {
-                    builder.Garden(garden);
-                }
-                else
-                {
-                    builder.Garden(!garden);
-                }
-
-                Console.WriteLine("Does the house have a swimming pool? (yes/no): ");
-                string hasPool = Console.ReadLine();
-                bool pool = true;
-                if (hasPool.ToUpper() == "Yes")
-                {
-                    builder.SwimmingPool(pool);
-                }
-                else
-                {
-                    builder.SwimmingPool(!pool);
-                }
-                FloorType.ChooseFloorType(ref builder);
-                KitchenType.ChooseKitchenType(ref builder);
-                FloorType.ChooseFloorType(ref builder);
+                HouseCustomizing.CustomizeHouse(ref builder);
                 houseDirector.SetBuilder(builder);
-                House house = builder.HouseBuilding();
+                House house;
+                if (builder.GetType().Name == "LuxuryHouse")
+                {
+                    house = houseDirector.ConstructLuxeryHouse(HouseCustomizing.EntryDoor, HouseCustomizing.RoomNumber, FloorType.FlooringType, KitchenType.KitchenStyle, RoofType.RoofTypes, HouseCustomizing.Garden, HouseCustomizing.Pool);
+                }
+                else if (builder.GetType().Name == "EcoFreindlyHouse")
+                {
+                    house = houseDirector.ConstructEcoyHouse(HouseCustomizing.EntryDoor, HouseCustomizing.RoomNumber, FloorType.FlooringType, KitchenType.KitchenStyle, RoofType.RoofTypes, HouseCustomizing.Garden, HouseCustomizing.Pool);
+                }
+                else
+                {
+                    house = houseDirector.ConstructMinimilistHouse(HouseCustomizing.EntryDoor, HouseCustomizing.RoomNumber, FloorType.FlooringType, KitchenType.KitchenStyle, RoofType.RoofTypes, HouseCustomizing.Garden, HouseCustomizing.Pool);
+                }
+
                 Console.WriteLine("Your customized house: " + house.HouseDesign());
                 Console.WriteLine("House Type: " + builder.GetType().Name);
             }
