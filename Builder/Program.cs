@@ -1,40 +1,63 @@
-﻿using Builder.PizzaBuilder;
-using Builder.PizzaProduct;
-using Builder.Director;
-
+﻿using Builder.Floor;
+using Builder.House_Director;
+using Builder.HouseProduct;
+using Builder.HouseType;
+using Builder.Interface;
+using Builder.Kitchen;
 namespace Builder
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static HouseDirector houseDirector = new();
+        public static void Main(string[] args)
         {
-            var pizzaBuilder = new ConcretePizzaBuilder();
-            var director = new PizzaDirector(pizzaBuilder);
-
-            Console.WriteLine("Pizza Type");
-            string type = Console.ReadLine();
-
-            Console.WriteLine("Choose Size (Small, Medium, Large):");
-            string size = Console.ReadLine();
-
-            Console.WriteLine("Choose Cheese (Mozzarella, Cheddar, Vegan):");
-            string cheese = Console.ReadLine();
-
-            Console.WriteLine("Choose Toppings (type 'done' to finish):");
-            List<string> toppings = new List<string>();
-            while (true)
+            Console.WriteLine("Welcome To The House Builder App !");
+            IHouseBuilder builder = HouseTypes.ChooseHouseType();
+            if (builder != null)
             {
-                string topping = Console.ReadLine();
-                if (topping.ToLower() == "done")
-                    break;
-                toppings.Add(topping);
+                Console.WriteLine("\nCustomize your house:");
+                Console.WriteLine("\nEnter the number of Entry Door: ");
+                int.TryParse(Console.ReadLine(), out int entryDoor);
+                builder.EntryDoor(entryDoor);
+
+                Console.WriteLine("Enter the number of rooms: ");
+                int.TryParse(Console.ReadLine(), out int roomNumber);
+                builder.RoomNumber(roomNumber);
+
+                Console.WriteLine("Does the house have a garden? (yes/no): ");
+                string hasGarden = Console.ReadLine();
+                bool garden = true;
+                if (hasGarden.ToUpper() == "Yes")
+                {
+                    builder.Garden(garden);
+                }
+                else
+                {
+                    builder.Garden(!garden);
+                }
+
+                Console.WriteLine("Does the house have a swimming pool? (yes/no): ");
+                string hasPool = Console.ReadLine();
+                bool pool = true;
+                if (hasPool.ToUpper() == "Yes")
+                {
+                    builder.SwimmingPool(pool);
+                }
+                else
+                {
+                    builder.SwimmingPool(!pool);
+                }
+                FloorType.ChooseFloorType(ref builder);
+                KitchenType.ChooseKitchenType(ref builder);
+                FloorType.ChooseFloorType(ref builder);
+                houseDirector.SetBuilder(builder);
+                House house = builder.HouseBuilding();
+                Console.WriteLine("Your customized house: " + house.HouseDesign());
+                Console.WriteLine("House Type: " + builder.GetType().Name);
             }
-            director.ConstractPizza(size, type, cheese, toppings);
-            Pizza pizza = pizzaBuilder.PrepareOrder();
-
-            Console.WriteLine("Your custom pizza:");
-            Console.WriteLine(pizza);
         }
-    }
 
+    }
 }
+
