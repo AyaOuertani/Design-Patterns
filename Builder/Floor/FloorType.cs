@@ -1,9 +1,4 @@
 ﻿using Builder.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Builder.Floor
 {
@@ -22,13 +17,13 @@ namespace Builder.Floor
                     FlooringType = "Marble";
                     break;
                 case 2:
-                    FlooringType="Hardwood";
+                    FlooringType = "Hardwood";
                     break;
                 case 3:
                     FlooringType = "Bamboo";
                     break;
                 case 4:
-                    FlooringType="Polished Concrete";
+                    FlooringType = "Polished Concrete";
                     break;
                 default:
                     Console.WriteLine("Default flooring will be used.");

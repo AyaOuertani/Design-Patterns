@@ -5,7 +5,7 @@ namespace Builder.House_Builder
 {
     public class EcoFreindlyHouse : IHouseBuilder
     {
-        private readonly House _house = new();
+        private House _house = new();
         public void EntryDoor(int entryDoor) => _house.EntryDoor = entryDoor;
         public void RoomNumber(int roomNumber) => _house.RoomNumber = roomNumber;
         public void FlooringType(string flooringType = "Bamboo") => _house.FlooringType = flooringType;
